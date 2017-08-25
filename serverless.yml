@@ -42,8 +42,8 @@ provider:
 #            - "/*"
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+ environment:
+   GOOGLE_MAPS_API_KEY: key1234
 
 # you can add packaging information here
 #package:
@@ -65,6 +65,14 @@ functions:
           path: second-endpoint
           method: POST
 
+  envVariables:
+    handler: envVariables.env
+    events:
+      - http:
+          path: envVariables
+          method: GET
+    environment:
+      OTHER_API_KEY: key12345
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
